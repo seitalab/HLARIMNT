@@ -1,0 +1,51 @@
+
+num_epoch: 300 # Max epoch to train the model.
+patience: 50 # Criteria for early stopping.
+weight_decay: 0.85 # lr(Learning Rate) decay rate.
+decay_interval: 10 # Interval to decay learning rate.
+val_split: 0.1 # Percentage of data used for validation.
+
+chunk_split_num: 50 # Number into which SNP data is split.
+
+dropout: 0.1 # Dropout rate.
+pe_dropout: 0.1 # Dropout rate at positional encoder.
+
+batch_size: 64 # Batch size.
+lr: 0.0005 # Learning rate.
+nhead: 64 # Numbers of heads in the Transformer Layer.
+num_layers: 2 # Numbers of the Transformer Encoder.
+dim_feedforward: 64 # Dimension of feedforward part of Transformer.
+emb_dim: 512 # Embedding dimension of the Transformer.
+
+fold_num: 5 # Numbers of folds in a cross-validation.
+
+w: 500 # Window size to select SNPs for each model (kbps).
+
+digits: # List of digits to be imputed.
+  - 2-digit
+  - 4-digit
+
+model:
+
+  embedding: # Embedding Layer.
+    type: hlarimnt
+
+  transformer: # Transformer Layer.
+    type: hlarimnt
+
+  classification: #Classification Layer.
+    type: hlarimnt
+
+  grouping: # Model grouping of the locus.
+    1:
+      - HLA_A
+    2:
+      - HLA_C
+      - HLA_B
+    3:
+      - HLA_DRB1
+      - HLA_DQA1
+      - HLA_DQB1
+    4:
+      - HLA_DPA1
+      - HLA_DPB1

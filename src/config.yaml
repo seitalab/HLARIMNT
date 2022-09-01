@@ -1,0 +1,7 @@
+
+exp:
+  pc_data_dir: /processed_data
+  outputs_dir: /outputs
+  model_save_dir: /models
+  log_save_dir: /logs
+  csv_save_dir: /results

@@ -1,0 +1,18 @@
+
+EmbeddingLayer:
+
+  hlarimnt:
+    module_file: hlarimnt
+    class_name: EmbeddingLayer
+
+TransformerLayer:
+
+  hlarimnt:
+    module_file: hlarimnt
+    class_name: TransformerLayer
+
+ClassificationLayer:
+
+  hlarimnt:
+    module_file: hlarimnt
+    class_name: ClassificationLayer
