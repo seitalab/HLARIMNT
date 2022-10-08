@@ -5,7 +5,7 @@ Codes for training and evaluation, used in "Efficient HLA imputation from sequen
 trans-ethnic MHC fine-mapping of type 1 diabetes](https://github.com/tatsuhikonaito/DEEP-HLA).)
 
 ## Proposal Part
-The structure of the Transformer-based model we proposed in this study is stored in the following directory.  
+The structure of the Transformer-based model we proposed in this study is stored in the following directory (Please also see the ***Some Notes*** section describing notes on Embedding Layer).
 
 ***src/exp/codes/architectures/***
 
