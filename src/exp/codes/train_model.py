@@ -154,9 +154,6 @@ class ModelTrainer:
                     epoch_acc_ave_t = np.mean([acc_dict_t[key] for key in acc_dict_t.keys()])
                     is_best = (self.earlystopper.show_best()['val_acc'] < epoch_acc_ave_v)
 
-                    if self.earlystopper.show_best()['val_acc'] == epoch_acc_ave_v and self.earlystopper.show_best()['train_acc'] < epoch_acc_ave_t:
-                        is_best = True
-
                     self.storer.store_epoch_result(epoch, acc_dict_t, is_eval=False)
                     self.storer.store_epoch_result(epoch, acc_dict_v, is_eval=True)
                     self.storer.amend_model(self.models, is_best)
