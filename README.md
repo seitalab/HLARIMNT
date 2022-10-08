@@ -49,3 +49,17 @@ If you don't want to perform a cross-validation (just want to train the model), 
 python run_eval.py --ref REFERENCE_PANEL_NAME --data_dir DATA_DIR_NAME
 ```
 This command will make a csv file ***outputs/FOLD_NUM/results/test_evals.csv*** for each fold (FOLD_NUM).
+
+## Some Notes
+- ### Data Preprocessing
+
+This repository contains the
+```
+python make_samplebim.py --ref REFERENCE_PANEL_NAME --data_dir DATA_DIR_NAME
+```
+command to generate REFERENCE_PANEL_NAME_sample.bim.
+The REFERENCE_PANEL_NAME_sample.bim is an intermediate file obtained by extracting only the SNPs used for training from the SNP information in the reference panel.
+However, if you use data other than Pan-Asian and T1DGC, make_samplebim.py may not work as intended; you may need to make sure that REFERENCE_PANEL_NAME_sample.bim contains information only for the SNPs to be used for training. Please take appropriate action according to your reference panel and experiments.
+
+- ### About Embedding Layer
+In Fig. 1(b) of the paper, the Embedding Layer is described as the process of splitting the SNPs data, adding a cls token, and then converting it to a feature vector. However, **EmbeddingLayer/hlarimnt.py** in this code only describes the operation of converting already-split data into feature vectors for implementation reasons. The process of splitting the data and adding the cls token is described in the **make_train_data** function of the **DataProcessor** class in **src/exp/codes/data/dataset.py**. **make_train_data** function is used in **src/exp/codes/train_model.py** (around line 100th).
