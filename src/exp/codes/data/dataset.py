@@ -57,7 +57,10 @@ class DataProcessor:
         """
 
         concord_snp = self.ref_bim.pos.isin(self.sample_bim.pos)
-        self.num_concord = np.sum(concord_snp)
+        model_bim_tmp = self.ref_bim.iloc[np.where(concord_snp)[0]]
+        duplicated_num = len(model_bim_tmp[model_bim_tmp.duplicated(subset='pos')])
+        
+        self.num_concord = np.sum(concord_snp) - duplicated_num
         
         for i in range(self.num_concord):
             if concord_snp.iloc[i]:
@@ -73,6 +76,7 @@ class DataProcessor:
         self.logger.log(f'{self.num_concord} SNPs are matched in position and used for training.')
 
         model_bim = self.ref_bim.iloc[np.where(concord_snp)[0]]
+        model_bim = model_bim[~model_bim.duplicated(subset='pos')]
         model_bim.to_csv(self.pc_data_loc + f'/model.bim', sep='\t', header=False, index=False)
 
         self.model_bim = pd.read_table(self.pc_data_loc + f'/model.bim', sep='\t|\s+', names=['chr', 'id', 'dist', 'pos', 'a1', 'a2'], header=None, engine='python')
@@ -167,7 +171,6 @@ class DataProcessor:
         train_data = []
         st_index, ed_index = self._set_index(hla_list)
         data_num = self.snp_encoded.shape[0]
-
         for i in range(data_num):
             snp_encoded_tmp = self.snp_encoded[i, st_index:ed_index]
             chunk_spilt_num = self.params['chunk_split_num']
