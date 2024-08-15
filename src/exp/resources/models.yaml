@@ -1,18 +1,56 @@
 
-EmbeddingLayer:
+foot:
 
-  hlarimnt:
-    module_file: hlarimnt
-    class_name: EmbeddingLayer
+  prime:
+    module_file: prime
+    class_name: PrimeEmbed
 
-TransformerLayer:
+  deep_hla:
+    module_file: deep_hla
+    class_name: CNNFoot
 
-  hlarimnt:
-    module_file: hlarimnt
-    class_name: TransformerLayer
+pos_encode:
 
-ClassificationLayer:
+  sine:
+    module_file: normal_pe
+    class_name: SinePE
 
-  hlarimnt:
-    module_file: hlarimnt
-    class_name: ClassificationLayer
+  linear:
+    module_file: normal_pe
+    class_name: LinearPE
+  
+  do_nothing:
+    module_file: normal_pe
+    class_name: CNNPE
+
+shared:
+
+  prime:
+    module_file: prime
+    class_name: PrimeShared
+
+  deep_hla:
+    module_file: deep_hla
+    class_name: CNNShared
+
+  rnn:
+    module_file: birnn
+    class_name: BiRNNShared
+
+each:
+
+  prime:
+    module_file: prime
+    class_name: PrimeEachNet
+
+  deep_hla:
+    module_file: deep_hla
+    class_name: CNNEachNet
+
+  rnn:
+    module_file: birnn
+    class_name: BiRNNEachNet
+
+  mini_cnn:
+    module_file: prime
+    class_name: miniCNNEachNet

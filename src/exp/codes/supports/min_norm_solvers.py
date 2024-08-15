@@ -1,9 +1,4 @@
 
-###################################################################################
-#       This code is a partial modification of the following link.                #                          
-# https://github.com/tatsuhikonaito/DEEP-HLA/blob/master/src/min_norm_solvers.py  #
-###################################################################################
-
 import numpy as np
 import torch
 

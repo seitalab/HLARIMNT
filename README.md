@@ -16,9 +16,9 @@ In addition, detailed settings such as hyperparameters are described in the foll
 ## Data preparation
 Pan-Asian reference panel is available [here](http://software.broadinstitute.org/mpg/snp2hla/) and T1DGC reference panel is available [here](https://repository.niddk.nih.gov/studies/t1dgc/) after the registration process.
 
-Put the directory that contains the reference panels in ***src/exp/codes/data/*** .
+Put the directory that contains the reference panels in ***/PATH/TO/ORIGINAL_DATA*** .
+(Edit `src/config.yaml` and `invoke_container.sh`)
 
-Then, if your directory is named "Pan-Asian", there will be a path ***src/exp/codes/data/Pan-Asian/Pan-Asian_REF.bim***,etc.
 
 ## Experiment
 - Run the following command to move to the directory for experiment.

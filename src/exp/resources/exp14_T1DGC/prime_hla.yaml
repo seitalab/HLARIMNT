@@ -1,0 +1,88 @@
+base:
+  exp_name: exp14_T1DGC
+  task: prime_hla
+  data:
+    dataset: T1DGC
+    ref: /T1DGC_REF_proc2.bim
+    #sample: /Pan-Asian_REF.bim
+    phased: /T1DGC_REF_proc2.bgl.phased
+
+    #dataset: Pan-Asian
+    #ref: /Pan-Asian_REF.bim
+    #sample: /Pan-Asian_REF.bim
+    #phased: /Pan-Asian_REF.bgl.phased
+
+  num_epoch: 300
+  patience: 50
+  weight_decay: 0.85
+  decay_interval: 10
+  fold_num: 5
+  val_split: 0.1
+  comp_cri: acc
+
+  encode: chunk
+  chunk_all: False
+  chunk_split_num: 50
+  kmeans: False
+  collapse: [0.0, 0]
+  rest_rate: 0.9
+  data_aug: False
+  aug_even: False
+  aug_rate: 10
+  use_splitter: False
+
+  conv1_num_filter: 128
+  conv2_num_filter: 64
+  conv1_kernel_size: 64
+  conv2_kernel_size: 64
+  fc_len: 128
+  input_collapse: False
+
+  dropout: 0.1
+  pe_dropout: 0.1
+
+  batch_size: 64
+  lr: 0.0005
+  nhead: 64
+  num_layers: 2
+  dim_feedforward: 64
+  emb_dim: 512
+  input_conv: False
+  embed_conv_dim: 32
+  
+  mini_fc_len: 128
+
+  w: 500
+
+  digits: 
+    - 2-digit
+    - 4-digit
+
+  model:
+
+    foot: 
+      type: prime
+
+    pos_encode:
+      type: sine
+
+    shared: 
+      type: prime
+
+    each:
+      type: prime
+
+    grouping:
+      1:
+        - HLA_A
+      2:
+        - HLA_C
+        - HLA_B
+      3:
+        - HLA_DRB1
+        - HLA_DQA1
+        - HLA_DQB1
+      4:
+        - HLA_DPA1
+        - HLA_DPB1
+

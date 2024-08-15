@@ -1,7 +1,61 @@
 
+dataset:
+
+  save_root: /PATH/TO/ORIGINAL_DATA
+  Pan-Asian:
+
+    dirname: /Pan-Asian
+
+    hla_info: /Pan-Asian_hla_info.yaml
+    allele_freq_info: /Pan-Asian_REF.FRQ.frq
+    ref_phased: /Pan-Asian_REF.bgl.phased
+
+  T1DGC:
+    dirname: /T1DGC
+
+    hla_info: /T1DGC_hla_info.yaml
+    allele_freq_info: /T1DGC_REF.FRQ.frq
+    ref_phased: /T1DGC_REF.bgl.phased  
+
+  Mixed:
+    dirname: /Mixed
+    hla_info: /Mixed_hla_info.yaml
+    allele_freq_info: /Mixed_REF.FRQ.frq
+
+  Equal:
+    dirname: /Equal
+    hla_info: /Equal_hla_info.yaml
+    allele_freq_info: /Equal_REF.FRQ.frq
+
+  Ind_Pan-Asian:
+    dirname: /Ind_Pan-Asian
+    hla_info: /common_hla_info.yaml
+    allele_freq_info: /Ind_Pan-Asian_REF.FRQ.frq
+
+  Ind_T1DGC:
+    dirname: /Ind_T1DGC
+    hla_info: /common_hla_info.yaml
+    allele_freq_info: /Ind_T1DGC_REF.FRQ.frq
+
+  T1DGC_1300:
+    dirname: /T1DGC_1300
+    hla_info: /T1DGC_1300_hla_info.yaml
+    allele_freq_info: /T1DGC_1300_REF.FRQ.frq
+
+  T1DGC_2600:
+    dirname: /T1DGC_2600
+    hla_info: /T1DGC_2600_hla_info.yaml
+    allele_freq_info: /T1DGC_2600_REF.FRQ.frq
+  
+  T1DGC_530:
+    dirname: /T1DGC_530
+    hla_info: /T1DGC_530_hla_info.yaml
+    allele_freq_info: /T1DGC_530_REF.FRQ.frq 
+
 exp:
-  pc_data_dir: /processed_data
-  outputs_dir: /outputs
-  model_save_dir: /models
-  log_save_dir: /logs
-  csv_save_dir: /results
+  pc_data_root: /PATH/TO/PROCESSED_DATA_SAVE_DIR #Path to processed dataset
+  save_root: /PATH/TO/EXPERIMENT_SAVE_DIR #Path to save experiment results
+  model_save_loc: /models
+  log_save_loc: /logs
+  graph_save_loc: /graphs
+  csv_save_loc: /csvs
