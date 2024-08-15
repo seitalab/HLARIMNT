@@ -25,7 +25,7 @@ def path_to_dict(path: str) -> Dict:
     Arg:
         path (str) : Path to file.
     Returns:
-        info_dict (Dict) : 
+        info_dict (Dict) :
     """
     yaml.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,
         lambda loader, node: OrderedDict(loader.construct_pairs(node)))

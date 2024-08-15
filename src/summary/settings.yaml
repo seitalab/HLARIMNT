@@ -1,0 +1,93 @@
+
+root_path: /root/export/users/kaho/prime_hla/exp/results_v240709
+result_file: evals_by_freq_test.csv
+save_root: .
+
+target_digit: 4-digit
+infreq_threshold: 0.01
+
+experiments:
+  - exp14_Pan-Asian
+  - exp14_T1DGC
+  - exp14_Equal
+  - T1DGC_530
+  - T1DGC_1300
+  - T1DGC_2600
+
+experiment_to_dataset:
+  exp14_Pan-Asian: Pan-Asian
+  exp14_T1DGC: T1DGC
+  exp14_Equal: Equal
+  T1DGC_530: T1DGC
+  T1DGC_1300: T1DGC
+  T1DGC_2600: T1DGC
+
+experiment_to_figname:
+  exp14_Pan-Asian: fig3a
+  exp14_T1DGC: fig3b
+  exp14_Equal: fig3c
+  # T1DGC_530: 
+  # T1DGC_1300: T1DGC
+  # T1DGC_2600: T1DGC
+
+# For fig2
+min_freqs:
+  - 0.1
+  - 0.05
+  - 0.01
+  - 0.005
+  - -0.005 # max_freq
+
+# For fig4
+datasizes:
+  exp14_T1DGC: 4180
+  T1DGC_2600: 2600
+  T1DGC_1300: 1300
+  T1DGC_530: 530
+
+metric_dict:
+
+  PPV: ppv
+  r2: r2
+  Sensitivity: sens
+  Probability: confidence
+
+metric_idx:
+  r2: 1
+  PPV: 2
+  Sensitivity: 3
+  Probability: 4
+
+methods:
+  - deep_hla
+  - prime_hla
+
+digits:
+  - 2-digit
+  - 4 digit
+
+genes:
+  - HLA_DPB1
+  - HLA_DPA1
+  - HLA_DQB1
+  - HLA_DQA1
+  - HLA_DRB1
+  - HLA_B
+  - HLA_A
+  - HLA_C
+
+seeds:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+
+columns:
+  - hla
+  - method
+  - seee0
+  - seed1
+  - seed2
+  - seed3
+  - seed4
